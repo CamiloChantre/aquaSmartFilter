@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Turbidez</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="css/sign_in.css" rel="stylesheet">
+  </head>
+
+  <body class="d-flex align-items-center py-4 bg-body-tertiary">
+    <main class="form-signin w-100 m-auto ">
+      <form action="getTurbidezDos.php" onsubmit="return validation()" method="POST">
+          <img class="mb-4 center" src="img/stur.png" alt="" width="72" height="57">
+          <h1 class="h3 mb-3 fw-normal text-center">Turbidez data</h1>
+
+          <div class="form-floating">
+            <input type="number" class="form-control" id="cantidad" name="cantidad" autofocus>
+            <label for="cantidad">Cantidad de datos a publicar</label>
+          </div> 
+          
+          <div class="form-floating mb-3">
+            <select class="form-select" name="sensorname" id="sensorname" label="Default select example">
+              <option selected>Seleccione el sensor</option>
+              <option value="turbidezDos">post-purificacion</option>
+              <option value="turbidez">pre-purificacion</option>
+            </select>
+          </div>
+
+          <!-- Agregue más campos de información requeridos aquí -->
+
+          <button class="btn btn-primary w-100 py-2" type="submit" id="btn">Send</button>
+      </form>
+    </main>
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+    <script>  
+      function validation() {  
+          var cantidad = document.getElementById("cantidad").value;  
+          var sensorname = document.getElementById("sensorname").value;
+
+          if (cantidad === "" || sensorname === "Seleccione el sensor") {  
+              alert("Please fill in all the fields.");  
+              return false;  
+          } else {
+              return true;
+          }
+      }  
+    </script>
+  </body>
+</html>

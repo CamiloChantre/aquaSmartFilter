@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sign up</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="css/sign_in.css" rel="stylesheet">
+  </head>
+
+  <body class="d-flex align-items-center py-4 bg-body-tertiary">
+    <main class="form-signin w-100 m-auto ">
+      <form  action = "registerUsers.php" onsubmit = "return validation()" method = "POST" >
+          <img class="mb-4 center" src="img/usernew.png" alt="" width="72" height="57" >
+          <h1 class="h3 mb-3 fw-normal text-center"> User register </h1>
+
+          <div class="form-floating">
+            <input type="text" class="form-control" id="user"  name="user"  autofocus>
+            <label for="user">Full Name</label>
+          </div> 
+
+          <div class="form-floating">
+            <input type="text" class="form-control" id="userName"  name="userName">
+            <label for="user">UserName</label>
+          </div>     <!-- user name es el usuario unico-->
+
+          <div class="form-floating">
+            <input type="password" class="form-control" id="pass"  name ="pass" oninput="validatePassword()" required>
+            <span id="passError" style="display: none; color: red;">La contraseña debe tener al menos 5 caracteres.</span>
+            <label for="pass">Password</label>
+          </div>
+
+           <!-- mas campos de infomacion requeridos aqui-->
+
+          <button class="btn btn-primary w-100 py-2" type="submit" id="btn" >Sign in</button>
+
+      </form>
+    </main>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    
+    
+<!--  el id se utiliza para identificar un elemento único en una página web, mientras que el 
+    name se utiliza para identificar un elemento en el contexto de un formulario y se envía 
+    junto con los datos del formulario. -->
+
+
+    <script>  
+      function validation()  
+      {  
+          var id=document.f1.user.value;  
+          var fllname = document.f1.userName.value;
+          var ps=document.f1.pass.value;  
+
+          if(id.length=="" && ps.length=="" && fllname.length=="") {  
+              alert("User Name and Password fields are empty");  
+              return false;  
+          }  
+          else  
+          {  
+              if(id.length=="") {  
+                  alert("User Name is empty");  
+                  return false;  
+              } 
+
+              if (ps.length=="") {  
+              alert("Password field is empty");  
+              return false;  
+              }   
+
+              if (fllname.length=="") {  
+              alert("Password field is empty");  
+              return false;  
+              }  
+          }                             
+      }  
+    </script>  
+
+ <script>
+      function validatePassword() {
+        var password = document.getElementById("pass").value;
+        var passError = document.getElementById("passError");
+      
+        if (password.length < 5) {
+          passError.style.display = "block";
+        } else {
+          passError.style.display = "none";
+        }
+      }
+  </script>
+
+  </body>
+</html>

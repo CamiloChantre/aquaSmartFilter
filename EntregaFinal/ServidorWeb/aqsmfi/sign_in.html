@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>log in</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="css/sign_in.css" rel="stylesheet">
+  </head>
+
+  <body class="d-flex align-items-center py-4 bg-body-tertiary">
+    
+    <main class="form-signin w-100 m-auto ">
+      
+      <form  action = "authentication.php" onsubmit = "return validation()" method = "POST"  id="loginForm">
+          <img class="mb-4 center" src="img/aguainicio.jpg" alt="" width="72" height="57" >
+          <h1 class="h3 mb-3 fw-normal text-center">Please sign in</h1>
+
+          <div class="form-floating">
+            <input type="text" class="form-control" id="user"  name="user"  placeholder="admin12">
+            <label for="user">User Name</label>
+          </div>
+
+          <div class="form-floating">
+            <input type="password" class="form-control" id="pass"  name ="pass" placeholder="Password">
+            <label for="pass">Password</label>
+          </div>
+
+          <button class="btn btn-primary w-100 py-2" type="submit" id="btn" >Sign in</button>
+
+      </form>
+    </main>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    
+    <script>  
+      function validation() {  
+          var user = document.getElementById("user").value;
+          var pass = document.getElementById("pass").value;
+  
+          if (user === "" || pass === "") {  
+              alert("User Name and Password fields are empty");  
+              return false;  
+          } else {  
+              if (user === "") {  
+                  alert("User Name is empty");  
+                  return false;  
+              }   
+              if (pass === "") {  
+                  alert("Password field is empty");  
+                  return false;  
+              }  
+          }  
+  
+          
+      }  
+  </script> 
+  
+
+  </body>
+</html>
